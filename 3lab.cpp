@@ -47,8 +47,8 @@ int task2 (){
         std::cin >> dyn[i];
     }
     std::cout << "\nYour array: " << std::endl;
-    for (int i=1; i<e+1; i++) {
-        std::cout << dyn[i-1] << ' ';
+    for (int i=0; i<e; i++) {
+        std::cout << dyn[i] << ' ';
     }
     std::cout << "\nYour modified array: " << std::endl;
     for (int i=0; i<e;i++){
@@ -100,11 +100,11 @@ int task3(){
 int task4 (){
     int l1,l2;
     float prop = 0.;
-    std::string str1 = "";
-    std::string str2 = "";
+    std::string str1;
+    std::string str2;
     std::string str3 = "Can you can a can as a canner can can a can?";
     std::cout << "\nEnter your string: " << std::endl;
-    std::cin >> str1;
+    std::getline(std::cin, str1);
     std::cout << str1 << std::endl;
     for ( int i = 0; i < str1.size(); i++){
         if (48 <= str1[i] && str1[i] <= 57) {
@@ -118,9 +118,10 @@ int task4 (){
     std::cin >> l2;
     l1--;
     l2--;
-    std::cout << "Result: " <<  str1.substr(l1,l2) << std::endl;
-    std::cout << "Your word: " << std::endl;
-    std::cin >> str2;
+    std::cout << "Result: " <<  str1.substr(l1,l2-l1+1) << std::endl;
+    std::cout << "Your word: " <<  std::endl;
+    std::cin.ignore(1, '\n');
+    std::getline(std::cin, str2);
     for (int i = 0; i < str3.size(); i++){
         if (( str3.substr(i,3) == "Can") || (str3.substr(i,4) == "can " || (str3.substr(i,4) == "can?" ))) {
             str3.erase(i,3);
